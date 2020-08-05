@@ -45,7 +45,7 @@
 	color: var(--color-primary-dark);
 }
 
-#page-teacher-form main .input-block label {
+#page-teacher-form main label {
 	color: var(--color-text-complement);
 }
 #page-teacher-form main fieldset .input-block + .textarea-block {
