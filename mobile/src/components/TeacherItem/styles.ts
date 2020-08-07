@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: 24,
 		fontFamily: "Poppins_400Regular",
 		fontSize: 14,
-		lineHeight: 24,
+		lineHeight: 20,
 		color: "#6a6180",
 	},
 
