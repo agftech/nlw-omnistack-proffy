@@ -8,32 +8,36 @@ import whatsAppIcon from "../../assets/images/icons/whatsapp.png";
 
 import styles from "./styles";
 
-function TeacherItem() {
+export interface Teacher {
+	id: number;
+	name: string;
+	avatar: string;
+	bio: string;
+	cost: number;
+	subject: string;
+	whatsapp: string;
+}
+
+interface TeacherItemProps {
+	teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.profile}>
-				<Image
-					style={styles.avatar}
-					source={{
-						uri: "https://github.com/agftech.png",
-					}}
-				/>
+				<Image style={styles.avatar} source={{ uri: teacher.avatar }} />
 				<View style={styles.profileInfo}>
-					<Text style={styles.name}>Agf Tech</Text>
-					<Text style={styles.subject}>Química</Text>
+					<Text style={styles.name}>{teacher.name}</Text>
+					<Text style={styles.subject}>{teacher.subject}</Text>
 				</View>
 			</View>
-			<Text style={styles.bio}>
-				Full Stack Developer
-				{"\n"}
-				{"\n"}
-				In constant learning...
-			</Text>
+			<Text style={styles.bio}>{teacher.bio}</Text>
 
 			<View style={styles.footer}>
 				<Text style={styles.price}>
 					Preço/Hora {"   "}
-					<Text style={styles.priceValue}>R$ 20,00</Text>
+					<Text style={styles.priceValue}>R$ {teacher.cost}</Text>
 				</Text>
 
 				<View style={styles.buttonsContainer}>
@@ -50,6 +54,6 @@ function TeacherItem() {
 			</View>
 		</View>
 	);
-}
+};
 
 export default TeacherItem;
