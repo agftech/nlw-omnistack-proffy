@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image, Text, Linking } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import heartOutlineIcon from "../../assets/images/icons/heart-outline.png";
 import unFavoriteIcon from "../../assets/images/icons/unfavorite.png";
@@ -20,12 +21,37 @@ export interface Teacher {
 
 interface TeacherItemProps {
 	teacher: Teacher;
+	favorited: boolean;
 }
 
-const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
+	const [isFavorited, setIsFavorited] = useState(favorited);
+
 	function handleLinkToWhatsapp() {
 		Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`);
 		console.log(teacher.whatsapp);
+	}
+
+	async function handleToggleFavorite() {
+		const favorites = await AsyncStorage.getItem("favorites");
+		let favoritesArray: Array<any> = [];
+
+		if (favorites) {
+			favoritesArray = JSON.parse(favorites);
+		}
+
+		if (isFavorited) {
+			const favoriteIndex = favoritesArray.findIndex((teacherItem: Teacher) => {
+				return teacher.id === teacherItem.id;
+			});
+
+			favoritesArray.splice(favoriteIndex, 1);
+			setIsFavorited(false);
+		} else {
+			favoritesArray.push(teacher);
+			setIsFavorited(true);
+		}
+		await AsyncStorage.setItem("favorites", JSON.stringify(favoritesArray));
 	}
 
 	return (
@@ -46,9 +72,15 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
 				</Text>
 
 				<View style={styles.buttonsContainer}>
-					<RectButton style={[styles.favoriteButton, styles.favorited]}>
-						{/* <Image source={heartOutlineIcon} /> */}
-						<Image source={unFavoriteIcon} />
+					<RectButton
+						onPress={handleToggleFavorite}
+						style={[styles.favoriteButton, isFavorited ? styles.favorited : {}]}
+					>
+						{isFavorited ? (
+							<Image source={unFavoriteIcon} />
+						) : (
+							<Image source={heartOutlineIcon} />
+						)}
 					</RectButton>
 
 					<RectButton
