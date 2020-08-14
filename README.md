@@ -5,7 +5,6 @@
 <img src="https://img.shields.io/badge/Project developed during the -NLW OMNISTACK TRAIL 2.0 by 🚀 Rocketseat-6842c2?style=for-the-badge"/>
 </h2>
 
-
 <p align="center">	
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/agftech/nlw-omnistack-proffy?color=6842c2">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/agftech/nlw-omnistack-proffy?color=6842c2">
@@ -30,12 +29,13 @@
 <p align="center">
   <a href="#package-platforms">Platforms</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">Licence</a>
+  <a href="#memo-license">License</a>
 </p>
 
 > ---
 >
 > ## :package: _**Platforms**_:
+>
 > - :cloud: [Server](https://github.com/agftech/nlw-omnistack-proffy/tree/master/server)
 > - :computer: [Web](https://github.com/agftech/nlw-omnistack-proffy/tree/master/web)
 > - :iphone: [Mobile](https://github.com/agftech/nlw-omnistack-proffy/tree/master/mobile)
@@ -46,13 +46,13 @@
 >
 > ## :rocket: _**Technologies**_:
 >
-> -  [Typescript](https://www.typescriptlang.org/)
-> -  [Node.js](https://nodejs.org/en/)
-> -  [ReactJS](https://reactjs.org/)
-> -  [React Native](http://facebook.github.io/react-native/)
-> -  [Expo](https://expo.io/)
-> -  [Express](https://expressjs.com/)
-> -  [Axios](https://github.com/axios/axios)
+> - [Typescript](https://www.typescriptlang.org/)
+> - [Node.js](https://nodejs.org/en/)
+> - [ReactJS](https://reactjs.org/)
+> - [React Native](http://facebook.github.io/react-native/)
+> - [Expo](https://expo.io/)
+> - [Express](https://expressjs.com/)
+> - [Axios](https://github.com/axios/axios)
 >
 > ---
 
